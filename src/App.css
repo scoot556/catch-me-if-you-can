@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: absolute;
 }
 
 .App-logo {
@@ -35,4 +39,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.testing-con {
+  position:fixed;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 100%;
+}
+
+.testing-inner {
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  display: flex;
+}
+
+.testing {
+  height: 75px;
+  width: 75px;
+  background-color: hsl(260, 30%, 50%);
+  position: flex;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 100%;
+}
+
+.bumper {
+  position: absolute;
+}
+
+.circle {
+  height: 75px;
+  width: 75px;
+  background-color: hsl(0, 60%, 53%);
+  position: absolute;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 100%;
+}
+
+.circle.animate {
+  animation: circle 2s linear infinite;
 }
