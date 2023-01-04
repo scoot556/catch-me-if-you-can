@@ -149,16 +149,19 @@ function App() {
     document.addEventListener("mousemove", function (evt) {
       var $this = document.querySelector('.circle');
       var circle = document.querySelector('.circle')
+      var circle1 = document.getElementById('circle1').getBoundingClientRect();
+
       var mouseX = evt.clientX;
       var mouseY = evt.clientY;
-      var circleX = circle.offsetLeft;
-      var circleY = circle.offsetLeft;
+      var circleX = circle1.left;
+      var circleY = circle1.top;
 
       var distanceX = mouseX - circleX;
       var distanceY = mouseY - circleY;
       var screenX = window.innerWidth;
       var screenY = window.innerHeight;
 
+      
       // console.log($this)
 
       // Check to see if the circle is about to go out of bounds
@@ -186,7 +189,7 @@ function App() {
       //   $this.style.transform = `translate3d(${distanceX*(Math.random()*150)}px, ${distanceY*(Math.random()*150)}px, 0)`;
       // }
 
-      console.log(screenX, screenY)
+      // console.log(screenX, screenY)
 
       let randomX = Math.random()*200;
       let randomY = Math.random()*200;
@@ -199,18 +202,63 @@ function App() {
       // document.addEventListener('mousemove', (e) => {
         // console.log(document.querySelector('.circle'))
         if (mouseX > circleX) {
-          circle.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
+          // circle.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
         } 
         // else {
         //   $this.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
         // }
 
         if (mouseY > circleY) {
-          circle.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
+          // circle.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
         } 
         // else {
         //   $this.style.transform = `translate3d(${randomXPos}px, ${randomYPos}px, 0)`;
         // }
+
+      //  console.log(mouseY, circle1)
+
+        // if (mouseX-100 < screenX) {
+        //   let calc = screenX < mouseX+100;
+        //   if (calc) {
+        //     // console.log(calc, screenX, mouseX)
+        //     circle.style.transform = `translate3d(${mouseX+100}px, ${mouseY-100}px, 0)`;
+        //   }
+        // }
+
+        // if (mouseY-100 < screenY) {
+        //   let calc = screenY < mouseY+100;
+        //   // console.log(calc, screenY, mouseY)
+        //   if (calc) {
+        //     // console.log(calc, screenY, mouseY)
+        //     circle.style.transform = `translate3d(${mouseX+100}px, ${mouseY+100}px, 0)`;
+        //   }
+          
+        // }
+
+        // if (mouseX+100 > screenX) {
+        //   circle.style.transform = `translate3d(${mouseX-100}px, ${mouseY-100}px, 0)`;
+        // }
+
+        // if (mouseY+100 > screenY) {
+        //   circle.style.transform = `translate3d(${mouseX-100}px, ${mouseY-100}px, 0)`;
+        // }
+
+        if (mouseY+100 > circleY) {
+          circle.style.transform = `translate3d(${circleX}px, ${mouseY+100*2}px, 0)`;
+        }
+
+        if (mouseX+100 > circleX) {
+          circle.style.transform = `translate3d(${mouseX+100*2}px, ${circleY}px, 0)`;
+        }
+
+        if (mouseY-100 < circleY) {
+          circle.style.transform = `translate3d(${circleX}px, ${mouseY-100*2}px, 0)`;
+        }
+
+        if (mouseX-100 < circleX) {
+          circle.style.transform = `translate3d(${mouseX-100*2}px, ${circleY}px, 0)`;
+        }
+        
 
       
           // const { clientX, clientY } = e;
@@ -373,7 +421,7 @@ function App() {
     <div className="App" >
       {/* Create a cricle */}
       {/* <span className="bumper"> */}
-        <span className='circle'></span>
+        <span className='circle' id='circle1'></span>
       {/* </span> */}
       {/* Create a cricle */}
       {/* <div className='circle'>
